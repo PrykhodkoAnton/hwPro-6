@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    console.log("1) Реалізуйте функцію removeElement(array, item), щоб видалити елемент item з масиву array.")
+    const array = [1, 3, 4, 6, 2, 5, 7];
+
+    function removeElement(array, item){
+        let index = array.indexOf(item);
+        if (index >= 0){
+            array.splice(index, 1);
+        }
+    }
+
+    removeElement(array, 5);
+    console.log(array);
+
+
+    console.log("2) Дано масив з елементами різних типів. Створити функцію яка вираховує середнє арифметичне лише числових елементів даного масиву.");
+
+    const myArray = [1, 2, 'three', 4, 'five', 6];
+
+    function calculateAvarage (){
+        let sum = 0;
+        let avarage = 0;
+        let numbersArray = myArray.filter(function(element){return typeof element === 'number';});
+        for (let i = 0; i<numbersArray.length; i++){
+            sum += numbersArray[i];
+            avarage = sum / numbersArray.length;
+        }return avarage;
+    }
+
+    console.log(`Середнє арифметичне чисел в масиві: ${calculateAvarage()}`);
+
+    console.log(`3) "Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом.'func(" hello world", ['l', 'd'])' поверне нам "heo wor". Вихідний рядок та символи для видалення задає користувач."`)
+
+
+
+
+    function removeCharacters(inputString , charactersToRemove) {
+        for (let i = 0; i < charactersToRemove.length; i++){
+            let charToRemove = charactersToRemove[i];
+            while  (inputString.indexOf(charToRemove) >= 0){
+                inputString = inputString.replace(charToRemove, '');
+            }
+
+        }
+        return inputString;
+    }
+
+    let inputString = prompt("введите строку");
+    let charactersToRemove1 = prompt("введите первую букву которую нужно удалить из строки");
+    let charactersToRemove2 = prompt("введите вторую букву которую нужно удалить из строки");
+    let charactersToRemove = [charactersToRemove1 , charactersToRemove2];
+    console.log(`вы удалили эти буквы: ${charactersToRemove}`);
+    const result = removeCharacters(inputString, charactersToRemove);
+    console.log(result);
+
+
+
+</script>
+</body>
+</html>
